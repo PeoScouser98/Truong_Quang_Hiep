@@ -1,0 +1,76 @@
+@import url('https://rsms.me/inter/inter.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.btn {
+		@apply inline-flex w-auto items-center justify-center gap-2 whitespace-nowrap !rounded-[4px] bg-base-content  font-semibold outline-none duration-200 hover:bg-gray-50 focus:active:animate-[pulse_ease-in-out_0.3s];
+	}
+
+	.btn-primary {
+		@apply !bg-primary !text-white hover:!bg-primary-active;
+	}
+	.btn-secondary {
+		@apply !bg-secondary !text-white hover:!bg-secondary-active;
+	}
+	.btn-success {
+		@apply !bg-success !text-white hover:!bg-success-active;
+	}
+	.btn-info {
+		@apply !bg-info !text-white hover:!bg-info-active;
+	}
+	.btn-error {
+		@apply !bg-error !text-white hover:!bg-error-active;
+	}
+	.btn-ghost {
+		@apply !bg-transparent text-base-content !shadow-none hover:!bg-gray-100 focus:active:!bg-gray-200 [&>:where(.loading)]:!border-r-base-content [&>:where(.loading)]:!border-t-base-content;
+	}
+	.btn-outline {
+		@apply rounded-[inherit] border bg-gray-100 text-base-content !shadow-none ring-inset ring-[1] ring-base-content hover:bg-gray-200 focus:active:bg-gray-200 [&>:where(.loading)]:!border-r-base-content [&>:where(.loading)]:!border-t-base-content;
+	}
+	.btn-disabled {
+		@apply !bg-gray-200 !text-gray-400 !shadow-none;
+	}
+	.btn-xs {
+		@apply px-2 py-1 text-xs;
+	}
+	.btn-sm {
+		@apply px-2.5 py-1.5 text-sm;
+	}
+	.btn-md {
+		@apply px-3 py-2;
+	}
+	.btn-lg {
+		@apply px-3.5 py-2.5 text-lg;
+	}
+	.btn-square {
+		@apply aspect-square;
+	}
+	.btn-circle {
+		@apply aspect-[1] !rounded-full;
+	}
+	.btn-pill {
+		@apply aspect-[1,3] !rounded-full;
+	}
+
+	.loading {
+		@apply pointer-events-none animate-roller rounded-full border-[3px] border-transparent border-r-white border-t-white [&>:where(.loading)]:!border-r-base-content [&>:where(.loading)]:!border-t-base-content;
+	}
+	.loading-sm {
+		@apply h-4 w-4;
+	}
+	.loading-md {
+		@apply h-6 w-6;
+	}
+	.loading-lg {
+		@apply h-8 w-8;
+	}
+	.loading-primary {
+		@apply !border-r-primary !border-t-primary;
+	}
+	.loading-secondary {
+		@apply !border-r-secondary !border-t-secondary;
+	}
+}
