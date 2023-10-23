@@ -27,12 +27,9 @@ const App: React.FunctionComponent = () => {
 		return data?.map((item) => ({ value: item.price, text: item.currency }));
 	}, [data]);
 
-	const [currencyToExchange, setCurrencyToExchange] = React.useState<(typeof dataSource)[0]>();
-	const [currencyToConvert, setCurrencyToConvert] = React.useState<(typeof dataSource)[0]>();
+	const [currencyToExchange, setCurrencyToExchange] = React.useState<{ text: string; value: number }>();
+	const [currencyToConvert, setCurrencyToConvert] = React.useState<{ text: string; value: number }>();
 	const [amount, setAmount] = React.useState<number>(1);
-
-	const exchangeCurrencyRef = React.useRef<HTMLSelectElement>(null);
-	const convertCurrencyRef = React.useRef<HTMLSelectElement>(null);
 
 	const handleSwapExchangeRate = () => {
 		setCurrencyToConvert(currencyToExchange);
@@ -68,7 +65,6 @@ const App: React.FunctionComponent = () => {
 									className='pl-8'
 									disabled={isLoading}
 									value={currencyToConvert?.value}
-									ref={convertCurrencyRef}
 									onChange={(e) =>
 										setCurrencyToConvert({
 											value: +e.target.value,
@@ -126,7 +122,6 @@ const App: React.FunctionComponent = () => {
 								<Select
 									className='pl-8'
 									disabled={isLoading}
-									ref={exchangeCurrencyRef}
 									value={currencyToExchange?.value}
 									onChange={(e) =>
 										setCurrencyToExchange({

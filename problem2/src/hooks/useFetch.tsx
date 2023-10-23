@@ -6,12 +6,13 @@ export default function useFetch<T>({
 	config,
 	initialData
 }: {
-	config: Pick<AxiosRequestConfig, "url" | "method" | "data" | "signal">;
+	config: Pick<AxiosRequestConfig, "url" | "method" | "data" | "signal" | "params">;
 	initialData?: T;
 }) {
 	const [isLoading, setLoadingState] = React.useState<boolean>(false);
 	const [isError, setErrorState] = React.useState<boolean>(false);
 	const [data, setData] = React.useState<T>(initialData!);
+	config.params ??= {};
 
 	React.useEffect(() => {
 		(async () => {
@@ -27,7 +28,7 @@ export default function useFetch<T>({
 				setLoadingState(false);
 			}
 		})();
-	}, []);
+	}, [config.params]);
 
 	return { data, isLoading, isError };
 }
