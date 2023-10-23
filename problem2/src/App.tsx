@@ -27,8 +27,8 @@ const App: React.FunctionComponent = () => {
 		return data?.map((item) => ({ value: item.price, text: item.currency }));
 	}, [data]);
 
-	const [currencyToExchange, setCurrencyToExchange] = React.useState<(typeof dataSource)[0]>();
-	const [currencyToConvert, setCurrencyToConvert] = React.useState<(typeof dataSource)[0]>();
+	const [currencyToExchange, setCurrencyToExchange] = React.useState<{ text: string; value: number }>();
+	const [currencyToConvert, setCurrencyToConvert] = React.useState<{ text: string; value: number }>();
 	const [amount, setAmount] = React.useState<number>(1);
 
 	const exchangeCurrencyRef = React.useRef<HTMLSelectElement>(null);
